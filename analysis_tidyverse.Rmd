@@ -125,6 +125,21 @@ name: introduction
 - Enhances efficiency and bearability in data preparation
 
 ---
+# Motivation
+
+## Who Should Attend?
+
+- This session is open to **anyone who knows R** and is looking to **improve the style and efficiency of their code**.
+
+--
+
+## Requirements
+
+- **Access to Materials**: Clone or download [this repository](https://github.com/dime-worldbank/data_analysis_tidyverse) to access the presentation materials.
+- **No need to code along live**. Just sit back, and absorb the concepts.
+- **After the session** you can work through the example (example/analysis_tidyverse_examples.R) at your own pace, enhancing your understanding of the Tidyverse.
+
+---
 
 # What is the Tidyverse?
 
@@ -177,12 +192,13 @@ knitr::include_graphics("img/tidyverse_env.png")
 
 # Prepare your Workspace 
 
-- Like in a project you will start the script, with a clear title of the purpose (this is the example folder in the repo) analysis_tidyverse.R for you to continue and follow along with the examples if you want, if you don't you can just follow the presentation. 
+**Script Set-up**
 
 - We start by adding the libraries we will use in the project. 
 
 ```{r, eval=FALSE}
 library(dplyr) 
+library(tidyr)
 library(ggplot2)
 library(dslabs)
 ```
@@ -230,10 +246,7 @@ summarise(
     region,
     section_type
   ), 
-  n = n(), 
-  pri_pvem = sum(pri_pvem), 
-  prd_pt_mc = sum(prd_pt_mc), 
-  pan = sum(pan)
+  n = n()
 )
 ```
 
@@ -251,10 +264,7 @@ polls_us_election_2016 %>%
   filter(!is.na(section_type)) %>%
   group_by(region, section_type) %>% 
   summarise(
-    n = n(), 
-    pri_pvem = sum(pri_pvem), 
-    prd_pt_mc = sum(prd_pt_mc), 
-    pan = sum(pan)
+    n = n()
   ) 
 ```
 
@@ -267,6 +277,18 @@ name: tidy-verbs
 # **Tidy Verbs**
 
 <html><div style='float:left'></div><hr color='#D38C28' size=1px width=1100px></html>
+
+---
+
+# Tidy Verbs
+
+The Tidyverse packages works better and should be ideally be used with tidy data or to produce tidy data. 
+
+```{r, out.width = "800px", include=T, echo=F}
+
+knitr::include_graphics("img/tidy_data.png")
+
+```
 
 ---
 # Tidy Verbs
@@ -324,21 +346,9 @@ $$\underbrace{\text{data.frame}}_{\text{1st argument}} \underbrace{\text{ %>% }}
 
 ---
 
-# Reshaping 
-
-The Tidyverse packages works better and should be performed using tidy data. 
-
-To achieve this one of the most common and useful operations you will do are the reshape of your data. 
-
-```{r, out.width = "800px", include=T, echo=F}
-
-knitr::include_graphics("img/tidy_data.png")
-
-```
-
----
-
 # `tidyr::pivot_longer()`
+
+Some of the **most useful** verbs in the tidyverse package, and particularly important to achieve tidy data, are the reshape verbs. 
 
 The first reshape operation involves making datasets longer by increasing the number of rows and decreasing the number of columns.
 
@@ -694,7 +704,7 @@ polls_us_election_2016 %>%
 
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -714,7 +724,7 @@ polls_us_election_2016 %>%
 ```
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -730,7 +740,7 @@ polls_us_election_2016 %>%
 ```
 
 ---
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -746,7 +756,7 @@ polls_us_election_2016 %>%
 ```
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -764,7 +774,7 @@ polls_us_election_2016 %>%
 ```
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)

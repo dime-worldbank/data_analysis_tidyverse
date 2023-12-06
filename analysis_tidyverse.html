@@ -92,6 +92,21 @@ name: introduction
 - Enhances efficiency and bearability in data preparation
 
 ---
+# Motivation
+
+## Who Should Attend?
+
+- This session is open to **anyone who knows R** and is looking to **improve the style and efficiency of their code**.
+
+--
+
+## Requirements
+
+- **Access to Materials**: Clone or download [this repository](https://github.com/dime-worldbank/data_analysis_tidyverse) to access the presentation materials.
+- **No need to code along live**. Just sit back, and absorb the concepts.
+- **After the session** you can work through the example (example/analysis_tidyverse_examples.R) at your own pace, enhancing your understanding of the Tidyverse.
+
+---
 
 # What is the Tidyverse?
 
@@ -136,13 +151,14 @@ name: tidy-workflow
 
 # Prepare your Workspace 
 
-- Like in a project you will start the script, with a clear title of the purpose (this is the example folder in the repo) analysis_tidyverse.R for you to continue and follow along with the examples if you want, if you don't you can just follow the presentation. 
+**Script Set-up**
 
 - We start by adding the libraries we will use in the project. 
 
 
 ```r
 library(dplyr) 
+library(tidyr)
 library(ggplot2)
 library(dslabs)
 ```
@@ -228,10 +244,7 @@ summarise(
     region,
     section_type
   ), 
-  n = n(), 
-  pri_pvem = sum(pri_pvem), 
-  prd_pt_mc = sum(prd_pt_mc), 
-  pan = sum(pan)
+  n = n()
 )
 ```
 
@@ -250,10 +263,7 @@ polls_us_election_2016 %&gt;%
   filter(!is.na(section_type)) %&gt;%
   group_by(region, section_type) %&gt;% 
   summarise(
-    n = n(), 
-    pri_pvem = sum(pri_pvem), 
-    prd_pt_mc = sum(prd_pt_mc), 
-    pan = sum(pan)
+    n = n()
   ) 
 ```
 
@@ -266,6 +276,14 @@ name: tidy-verbs
 # **Tidy Verbs**
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#D38C28' size=1px width=1100px&gt;&lt;/html&gt;
+
+---
+
+# Tidy Verbs
+
+The Tidyverse packages works better and should be ideally be used with tidy data or to produce tidy data. 
+
+&lt;img src="img/tidy_data.png" width="800px" style="display: block; margin: auto;" /&gt;
 
 ---
 # Tidy Verbs
@@ -323,17 +341,9 @@ The `tidyverse` ecosystem is composed of multiple packages, each equipped with s
 
 ---
 
-# Reshaping 
-
-The Tidyverse packages works better and should be performed using tidy data. 
-
-To achieve this one of the most common and useful operations you will do are the reshape of your data. 
-
-&lt;img src="img/tidy_data.png" width="800px" style="display: block; margin: auto;" /&gt;
-
----
-
 # `tidyr::pivot_longer()`
+
+Some of the **most useful** verbs in the tidyverse package, and particularly important to achieve tidy data, are the reshape verbs. 
 
 The first reshape operation involves making datasets longer by increasing the number of rows and decreasing the number of columns.
 
@@ -855,7 +865,7 @@ polls_us_election_2016 %&gt;%
 
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -893,7 +903,7 @@ polls_us_election_2016 %&gt;%
 ```
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -927,7 +937,7 @@ polls_us_election_2016 %&gt;%
 ```
 
 ---
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -962,7 +972,7 @@ polls_us_election_2016 %&gt;%
 ```
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
@@ -998,7 +1008,7 @@ polls_us_election_2016 %&gt;%
 ```
 ---
 
-# Chaning commands
+# Chaining commands
 
 With these verbs and the pipe chaining commands helps tidy your workflow, you can do multiple of this operations at the same time.
 (for tidyverse verbs and others)
