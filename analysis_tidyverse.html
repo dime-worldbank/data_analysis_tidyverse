@@ -157,10 +157,10 @@ name: tidy-workflow
 
 
 ```r
-library(dplyr) 
-library(tidyr)
-library(ggplot2)
-library(dslabs)
+library(tidyr) # Data tidying 
+library(dplyr) # Data manipulation
+library(ggplot2) # Data visualization
+library(dslabs) # Contains the data we will use in this presentation. 
 ```
 
 - Read the data 
@@ -199,6 +199,9 @@ head(polls_us_election_2016) # show first 6 lines of first 6 variables
 ## #   rawpoll_johnson &lt;dbl&gt;, rawpoll_mcmullin &lt;dbl&gt;, adjpoll_clinton &lt;dbl&gt;,
 ## #   adjpoll_trump &lt;dbl&gt;, adjpoll_johnson &lt;dbl&gt;, adjpoll_mcmullin &lt;dbl&gt;
 ```
+
+
+
 
 ---
 
@@ -248,11 +251,16 @@ summarise(
 )
 ```
 
+- This approach can get complex really easy creating unreadable code.
+
 ---
 
-# The pipe operator 
+# The pipe operator
 
-- This approach can lead to complex and unreadable code.
+- The pipe operator (**|&gt;**  or **%&gt;%**) can help with this.  
+
+- The pipe is a tool to chain commands more clearly. 
+
 - With the pipe code reads from left to right, top to bottom, which is more intuitive.
 
 |&gt;  or %&gt;% can be read as "then" and simplifies code structure.
@@ -281,7 +289,7 @@ name: tidy-verbs
 
 # Tidy Verbs
 
-The Tidyverse packages works better and should be ideally be used with tidy data or to produce tidy data. 
+The Tidyverse packages are a great tool to **tidy data** and perform operations on **tidy data ** 
 
 &lt;img src="img/tidy_data.png" width="800px" style="display: block; margin: auto;" /&gt;
 
@@ -1159,7 +1167,7 @@ longer_dataframe %&gt;%
 
 # Geoms
 
-&lt;img src="analysis_tidyverse_files/figure-html/unnamed-chunk-53-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="analysis_tidyverse_files/figure-html/unnamed-chunk-54-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1193,7 +1201,7 @@ longer_dataframe %&gt;%
 
 We can make it prettier, and do many more things with ggplot, please explore on your own. 
 
-&lt;img src="analysis_tidyverse_files/figure-html/unnamed-chunk-55-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="analysis_tidyverse_files/figure-html/unnamed-chunk-56-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
