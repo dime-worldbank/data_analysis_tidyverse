@@ -243,9 +243,9 @@ str(polls_us_election_2016) # Displays structures of R objects
 ```r
 summarise(
   group_by(
-    filter(polls_us_election_2016, !is.na(section_type)),
-    region,
-    section_type
+    filter(polls_us_election_2016, !is.na(samplesize)),
+    pollster,
+    state
   ), 
   n = n()
 )
@@ -261,15 +261,15 @@ summarise(
 
 - The pipe is a tool to chain commands more clearly. 
 
-- With the pipe code reads from left to right, top to bottom, which is more intuitive.
+- With the pipe, code reads from left to right, top to bottom, which is more intuitive.
 
 |&gt;  or %&gt;% can be read as "then" and simplifies code structure.
 
 
 ```r
 polls_us_election_2016 %&gt;% 
-  filter(!is.na(section_type)) %&gt;%
-  group_by(region, section_type) %&gt;% 
+  filter(!is.na(samplesize)) %&gt;%
+  group_by(pollster, state) %&gt;% 
   summarise(
     n = n()
   ) 

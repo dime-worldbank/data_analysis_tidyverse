@@ -248,9 +248,9 @@ str(polls_us_election_2016) # Displays structures of R objects
 ```{r, eval=FALSE}
 summarise(
   group_by(
-    filter(polls_us_election_2016, !is.na(section_type)),
-    region,
-    section_type
+    filter(polls_us_election_2016, !is.na(samplesize)),
+    pollster,
+    state
   ), 
   n = n()
 )
@@ -272,8 +272,8 @@ summarise(
 
 ```{r, eval=FALSE}
 polls_us_election_2016 %>% 
-  filter(!is.na(section_type)) %>%
-  group_by(region, section_type) %>% 
+  filter(!is.na(samplesize)) %>%
+  group_by(pollster, state) %>% 
   summarise(
     n = n()
   ) 
